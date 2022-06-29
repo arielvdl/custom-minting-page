@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="Thirdweb, thirdweb NFT drop, how to make thirdweb nft drop, how to make nft collection thirdweb"
         />
       </Head>
-      <Component {...pageProps} />
+      {/* <Component {...pageProps} /> */}
     </ThirdwebProvider>
   );
 }

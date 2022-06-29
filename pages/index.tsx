@@ -250,7 +250,7 @@ const Home: NextPage = () => {
             transform: "translate(-50%, -50%)",
             maxWidth: "50vw",
             minWidth: "390px",
-            BorderRadius: "30px",
+            borderRadius: "30px",
             textAlign: "center"
           },
           content: {
