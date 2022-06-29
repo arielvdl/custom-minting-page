@@ -15,7 +15,7 @@ export default function ThirdwebGuideFooter() {
           border: "1px solid #eaeaea",
           transform: "rotate(45deg)",
           backgroundColor: " #262935",
-          cursor: "pointer",
+          cursor: "pointer"
         }}
         role="button"
         onClick={() => window.open(url, "_blank")}
@@ -25,7 +25,7 @@ export default function ThirdwebGuideFooter() {
         style={{
           position: "fixed",
           bottom: 14,
-          right: 18,
+          right: 18
         }}
       >
         <img

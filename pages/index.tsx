@@ -8,17 +8,17 @@ import {
   useActiveClaimCondition,
   useClaimNFT,
   useWalletConnect,
-  useCoinbaseWallet,
-} from '@thirdweb-dev/react';
-import { useNetworkMismatch } from '@thirdweb-dev/react';
-import { useAddress, useMetamask } from '@thirdweb-dev/react';
-import { formatUnits, parseUnits } from 'ethers/lib/utils';
-import type { NextPage } from 'next';
-import { useState } from 'react';
-import styles from '../styles/Theme.module.css';
+  useCoinbaseWallet
+} from "@thirdweb-dev/react";
+import { useNetworkMismatch } from "@thirdweb-dev/react";
+import { useAddress, useMetamask } from "@thirdweb-dev/react";
+import { formatUnits, parseUnits } from "ethers/lib/utils";
+import type { NextPage } from "next";
+import { useState } from "react";
+import styles from "../styles/Theme.module.css";
 
 // Put Your NFT Drop Contract address from the dashboard here
-const myNftDropContractAddress = '0x322067594DBCE69A9a9711BC393440aA5e3Aaca1';
+const myNftDropContractAddress = "0x322067594DBCE69A9a9711BC393440aA5e3Aaca1";
 
 const Home: NextPage = () => {
   const nftDrop = useNFTDrop(myNftDropContractAddress);
@@ -35,7 +35,7 @@ const Home: NextPage = () => {
 
   // Load contract metadata
   const { data: contractMetadata } = useContractMetadata(
-    myNftDropContractAddress,
+    myNftDropContractAddress
   );
 
   // Load claimed supply and unclaimed supply
@@ -55,8 +55,8 @@ const Home: NextPage = () => {
 
   // Check price
   const price = parseUnits(
-    activeClaimCondition?.currencyMetadata.displayValue || '0',
-    activeClaimCondition?.currencyMetadata.decimals,
+    activeClaimCondition?.currencyMetadata.displayValue || "0",
+    activeClaimCondition?.currencyMetadata.decimals
   );
 
   // Multiply depending on quantity
@@ -78,26 +78,21 @@ const Home: NextPage = () => {
       { to: address as string, quantity },
       {
         onSuccess: () => {
-          alert(`Successfully minted NFT${quantity > 1 ? 's' : ''}!`);
+          alert(`Successfully minted NFT${quantity > 1 ? "s" : ""}!`);
         },
         onError: (err: any) => {
           console.error(err);
-          alert(err?.message || 'Something went wrong');
-        },
-      },
+          alert(err?.message || "Something went wrong");
+        }
+      }
     );
   };
 
   return (
     <div className={styles.container}>
-      <div className={styles.mintInfoContainer}>
-        <div className={styles.infoSide}>
-          {/* Title of your NFT Collection */}
-          <h1>{contractMetadata?.name}</h1>
-          {/* Description of your NFT Collection */}
-          <p className={styles.description}>{contractMetadata?.description}</p>
-        </div>
+      <div className={styles.mostraerro}>aaaaaaaa</div>
 
+      <div className={styles.mintInfoContainer}>
         <div className={styles.imageSide}>
           {/* Image Preview of NFTs */}
           <img
@@ -109,14 +104,14 @@ const Home: NextPage = () => {
           {/* Amount claimed so far */}
           <div className={styles.mintCompletionArea}>
             <div className={styles.mintAreaLeft}>
-              <p>Total Minted</p>
+              <p>Total</p>
             </div>
             <div className={styles.mintAreaRight}>
               {claimedSupply && unclaimedSupply ? (
                 <p>
                   {/* Claimed supply so far */}
                   <b>{claimedSupply?.toNumber()}</b>
-                  {' / '}
+                  {" / "}
                   {
                     // Add unclaimed and claimed supply to get the total supply
                     claimedSupply?.toNumber() + unclaimedSupply?.toNumber()
@@ -160,8 +155,7 @@ const Home: NextPage = () => {
                     disabled={
                       quantity >=
                       parseInt(
-                        activeClaimCondition?.quantityLimitPerTransaction ||
-                          '0',
+                        activeClaimCondition?.quantityLimitPerTransaction || "0"
                       )
                     }
                   >
@@ -175,18 +169,18 @@ const Home: NextPage = () => {
                   disabled={claimNFT.isLoading}
                 >
                   {claimNFT.isLoading
-                    ? 'Minting...'
-                    : `Mint${quantity > 1 ? ` ${quantity}` : ''}${
+                    ? "Minting..."
+                    : `Mint${quantity > 1 ? ` ${quantity}` : ""}${
                         activeClaimCondition?.price.eq(0)
-                          ? ' (Free)'
+                          ? " (Free)"
                           : activeClaimCondition?.currencyMetadata.displayValue
                           ? ` (${formatUnits(
                               priceToMint,
-                              activeClaimCondition.currencyMetadata.decimals,
+                              activeClaimCondition.currencyMetadata.decimals
                             )} ${
                               activeClaimCondition?.currencyMetadata.symbol
                             })`
-                          : ''
+                          : ""
                       }`}
                 </button>
               </>
@@ -205,12 +199,10 @@ const Home: NextPage = () => {
               >
                 Connect with Wallet Connect
               </button>
-             
             </div>
           )}
         </div>
       </div>
-    
     </div>
   );
 };

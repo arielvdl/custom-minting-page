@@ -7,6 +7,10 @@
   width: 100vw;
 }
 
+.mostraerro {
+  display: none;
+}
+
 .previewImage {
   height: 500px;
   width: 500px;
