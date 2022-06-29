@@ -108,13 +108,16 @@ const Home: NextPage = () => {
         },
         onError: (err: any) => {
           if (err?.message.includes("User denied")) {
+            setTitle("Ops!");
             setMessage(err?.message);
-          } else if (err?.message.includes("User deniedaaaa")) {
-            setMessage(err?.message);
-            //setMessage("Only one NFT per wallet is allowed.");
+          } else if (err?.message.includes("execution reverted")) {
+            // setTitle("Atention");
+            setMessage("Only 1 nft allowed per whitelisted approved wallet.");
           } else {
-            // setMessage("There was a problem. Refresh the page and test again.");
-            setMessage(err?.message);
+            setMessage(
+              "There was a problem. You are probably not on the whitelist. If so, try reloading the page."
+            );
+            // setMessage(err?.message);
           }
           openModal();
           console.error(err);
@@ -242,25 +245,36 @@ const Home: NextPage = () => {
         isOpen={modalIsOpen}
         style={{
           overlay: {
-            backgroundColor: "black",
+            backgroundColor: "#ffffff00",
             top: "50%",
             left: "50%",
             marginRight: "-50%",
             transform: "translate(-50%, -50%)",
-            width: "50vw"
+            maxWidth: "50vw",
+            minWidth: "390px",
+            BorderRadius: "30px",
+            textAlign: "center"
           },
           content: {
             color: "black",
-            padding: "20px"
+            backgroundColor: "#ffffff00",
+            border: "0px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignContent: "center"
           }
         }}
         contentLabel="resposta"
       >
-        <h2>{popupTitle}</h2>
-        <h2>{popupMessage}</h2>
-        <button onClick={closeModal} className={styles.mainButton}>
-          close
-        </button>
+        <div className={styles.modalContent}>
+          <h2>{popupTitle}</h2>
+          <h3 className={styles.modalContentH3}>{popupMessage}</h3>
+          <div>&nbsp;</div>
+          <button onClick={closeModal} className={styles.mainButtonModal}>
+            close
+          </button>
+        </div>
       </Modal>
     </div>
   );

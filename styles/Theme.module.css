@@ -65,6 +65,50 @@
   margin: 12px 0;
 }
 
+.modalContent {
+  margin-top: 20px;
+  background-color: #e5e5ea;
+  padding: 30px;
+}
+
+.modalContentH3 {
+}
+
+.mainButtonModal {
+  cursor: pointer;
+  display: inline-flex;
+  appearance: none;
+  align-items: center;
+  -webkit-box-align: center;
+  justify-content: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  line-height: 1.2;
+  font-weight: 600;
+  transition-property: background-color, border-color, color, fill, stroke,
+    opacity, box-shadow, transform;
+  transition-duration: 200ms;
+  height: 3rem;
+  min-width: 3rem;
+  font-size: 1rem;
+  background: #e5e5ea;
+  background-image: linear-gradient(
+    to left,
+    var(--color-primary) 0%,
+    var(--color-secondary) 101.52%
+  );
+  color: #fff;
+  padding: 30px;
+  text-align: center;
+  border-radius: 9999px;
+  border-style: none;
+  max-width: 280px;
+  min-width: 130px;
+  margin: auto;
+}
+
 .mainButton {
   cursor: pointer;
   display: inline-flex;
