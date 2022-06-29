@@ -48,3 +48,4 @@ Replace the value of the `myNftDropContractAddress` inside [`index.tsx`](/pages/
 ## Join our Discord!
 
 For any questions, suggestions, join our discord at [https://discord.gg/thirdweb](https://discord.gg/thirdweb).
+
