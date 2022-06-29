@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   async rewrites() {
     return [
-      { source: '/success', destination: 'https://google.com/' },
+      { source: '/success1', destination: 'https://roughdiamonds.io/mint-ok' },
     ];
   },
   images: {

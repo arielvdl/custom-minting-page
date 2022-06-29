@@ -22,7 +22,7 @@ import styles from "../styles/Theme.module.css";
 
 // Modal.setAppElement('#modal');
 // Put Your NFT Drop Contract address from the dashboard here
-const myNftDropContractAddress = "0x00038ACB755B769ab75FCc252Ed553D64EFb5A06";
+const myNftDropContractAddress = "0x34d5bfd207881787Ae6c55d6fFD4f06FAb90027E";
 const customStyles = {
   content: {
     top: "50%",
@@ -104,8 +104,8 @@ const Home: NextPage = () => {
       { to: address as string, quantity },
       {
         onSuccess: () => {
-          alert(`Successfully minted NFT${quantity > 1 ? "s" : ""}!`);
-          Router.push("/success");
+          //alert(`Successfully minted NFT${quantity > 1 ? "s" : ""}!`);
+          Router.push("/success1");
         },
         onError: (err: any) => {
           if (err?.message.includes("User denied")) {
@@ -167,7 +167,7 @@ const Home: NextPage = () => {
             // Sold out or show the claim button
             isSoldOut ? (
               <div>
-                <h2>Sold Out</h2>
+                <h2 className={styles.soldout}>Sold Out</h2>
               </div>
             ) : isNotReady ? (
               <div>
@@ -226,7 +226,7 @@ const Home: NextPage = () => {
           ) : (
             <div className={styles.buttons}>
               <button
-                className={styles.mainButton}
+                className={styles.metamaskbt} className={styles.mainButton}
                 onClick={connectWithMetamask}
               >
                 Connect MetaMask

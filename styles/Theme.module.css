@@ -209,8 +209,9 @@
   opacity: 0.25;
 }
 
-.aa {
-  color: blue !important;
+.soldout {
+  color: #a1a1ed;
+  margin-top: 26px;
 }
 
 /* On mobile, make the .mintInfoContainer stack vertically */
@@ -226,5 +227,9 @@
 
   .imageSide {
     width: 100%;
+  }
+
+  .metamaskbt{
+    display:none;
   }
 }
