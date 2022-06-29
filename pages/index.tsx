@@ -205,23 +205,12 @@ const Home: NextPage = () => {
               >
                 Connect with Wallet Connect
               </button>
-              <button
-                className={styles.mainButton}
-                onClick={connectWithCoinbaseWallet}
-              >
-                Connect with Coinbase Wallet
-              </button>
+             
             </div>
           )}
         </div>
       </div>
-      {/* Powered by thirdweb */}{' '}
-      <img
-        src="/logo.png"
-        alt="thirdweb Logo"
-        width={135}
-        className={styles.buttonGapTop}
-      />
+    
     </div>
   );
 };
