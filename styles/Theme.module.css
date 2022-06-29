@@ -165,6 +165,10 @@
   opacity: 0.25;
 }
 
+.aa {
+  color: blue !important;
+}
+
 /* On mobile, make the .mintInfoContainer stack vertically */
 @media screen and (max-width: 850px) {
   .mintInfoContainer {

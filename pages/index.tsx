@@ -8,7 +8,7 @@ import {
   useActiveClaimCondition,
   useClaimNFT,
   useWalletConnect,
-  useCoinbaseWallet,
+  useCoinbaseWallet
 } from "@thirdweb-dev/react";
 import { useNetworkMismatch } from "@thirdweb-dev/react";
 import { useAddress, useMetamask } from "@thirdweb-dev/react";
@@ -21,7 +21,7 @@ import styles from "../styles/Theme.module.css";
 
 // Modal.setAppElement('#Home');
 // Put Your NFT Drop Contract address from the dashboard here
-const myNftDropContractAddress = "0x322067594DBCE69A9a9711BC393440aA5e3Aaca1";
+const myNftDropContractAddress = "0x00038ACB755B769ab75FCc252Ed553D64EFb5A06";
 const customStyles = {
   content: {
     top: "50%",
@@ -30,8 +30,8 @@ const customStyles = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
-    color: "black",
-  },
+    color: "black"
+  }
 };
 
 const Home: NextPage = () => {
@@ -95,7 +95,7 @@ const Home: NextPage = () => {
   // Function to mint/claim an NFT
   const mint = async () => {
     if (isOnWrongNetwork) {
-      switchNetwork && switchNetwork(ChainId.Mumbai);
+      switchNetwork && switchNetwork(4);
       return;
     }
 
@@ -106,15 +106,19 @@ const Home: NextPage = () => {
           alert(`Successfully minted NFT${quantity > 1 ? "s" : ""}!`);
           Router.push("/success");
         },
-        onError: (err: any) => {          
-          if ( err?.message.includes("User denied") ) {            
+        onError: (err: any) => {
+          if (err?.message.includes("User denied")) {
             setMessage(err?.message);
+          } else if (err?.message.includes("User deniedaaaa")) {
+            setMessage(err?.message);
+            //setMessage("Only one NFT per wallet is allowed.");
           } else {
-            setMessage("Outro Erro");
+            // setMessage("There was a problem. Refresh the page and test again.");
+            setMessage(err?.message);
           }
           openModal();
           console.error(err);
-        },
+        }
       }
     );
   };
@@ -236,12 +240,27 @@ const Home: NextPage = () => {
       </div>
       <Modal
         isOpen={modalIsOpen}
-        style={customStyles}
-        contentLabel="Example Modal"
+        style={{
+          overlay: {
+            backgroundColor: "black",
+            top: "50%",
+            left: "50%",
+            marginRight: "-50%",
+            transform: "translate(-50%, -50%)",
+            width: "50vw"
+          },
+          content: {
+            color: "black",
+            padding: "20px"
+          }
+        }}
+        contentLabel="resposta"
       >
         <h2>{popupTitle}</h2>
-        <button onClick={closeModal}>close</button>
-        <div>{popupMessage}</div>
+        <h2>{popupMessage}</h2>
+        <button onClick={closeModal} className={styles.mainButton}>
+          close
+        </button>
       </Modal>
     </div>
   );
