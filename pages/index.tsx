@@ -16,7 +16,6 @@ import { formatUnits, parseUnits } from "ethers/lib/utils";
 import type { NextPage } from "next";
 import Router from "next/router";
 import { useState } from "react";
-import Modal from "react-modal";
 import styles from "../styles/Theme.module.css";
 
 // Modal.setAppElement('#Home');
