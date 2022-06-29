@@ -15,11 +15,12 @@ import { useAddress, useMetamask } from "@thirdweb-dev/react";
 import { formatUnits, parseUnits } from "ethers/lib/utils";
 import Modal from "react-modal";
 import type { NextPage } from "next";
+import Image from 'next/image'
 import Router from "next/router";
 import { useState } from "react";
 import styles from "../styles/Theme.module.css";
 
-// Modal.setAppElement('#Home');
+// Modal.setAppElement('#modal');
 // Put Your NFT Drop Contract address from the dashboard here
 const myNftDropContractAddress = "0x00038ACB755B769ab75FCc252Ed553D64EFb5A06";
 const customStyles = {
@@ -131,12 +132,13 @@ const Home: NextPage = () => {
       <div className={styles.mintInfoContainer}>
         <div className={styles.imageSide}>
           {/* Image Preview of NFTs */}
-          <img
+          <Image
             className={styles.image}
             src={contractMetadata?.image}
             alt={`${contractMetadata?.name} preview image`}
+            width={350}
+            height={350}
           />
-
           {/* Amount claimed so far */}
           <div className={styles.mintCompletionArea}>
             <div className={styles.mintAreaLeft}>
@@ -240,6 +242,7 @@ const Home: NextPage = () => {
         </div>
       </div>
       <Modal
+        ariaHideApp={false}
         isOpen={modalIsOpen}
         style={{
           overlay: {

@@ -5,7 +5,10 @@ const nextConfig = {
     return [
       { source: '/success', destination: 'https://google.com/' },
     ];
-  },  
+  },
+  images: {
+    domains: ['gateway.ipfscdn.io'],
+  },
 }
 
 module.exports = nextConfig
