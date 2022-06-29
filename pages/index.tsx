@@ -13,6 +13,7 @@ import {
 import { useNetworkMismatch } from "@thirdweb-dev/react";
 import { useAddress, useMetamask } from "@thirdweb-dev/react";
 import { formatUnits, parseUnits } from "ethers/lib/utils";
+import Modal from "react-modal";
 import type { NextPage } from "next";
 import Router from "next/router";
 import { useState } from "react";
