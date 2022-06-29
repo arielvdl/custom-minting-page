@@ -8,19 +8,34 @@ import {
   useActiveClaimCondition,
   useClaimNFT,
   useWalletConnect,
-  useCoinbaseWallet
+  useCoinbaseWallet,
 } from "@thirdweb-dev/react";
 import { useNetworkMismatch } from "@thirdweb-dev/react";
 import { useAddress, useMetamask } from "@thirdweb-dev/react";
 import { formatUnits, parseUnits } from "ethers/lib/utils";
 import type { NextPage } from "next";
+import Router from "next/router";
 import { useState } from "react";
+import Modal from "react-modal";
 import styles from "../styles/Theme.module.css";
 
+// Modal.setAppElement('#Home');
 // Put Your NFT Drop Contract address from the dashboard here
 const myNftDropContractAddress = "0x322067594DBCE69A9a9711BC393440aA5e3Aaca1";
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    color: "black",
+  },
+};
 
 const Home: NextPage = () => {
+  const [modalIsOpen, setIsOpen] = useState(false);
   const nftDrop = useNFTDrop(myNftDropContractAddress);
   const address = useAddress();
   const connectWithMetamask = useMetamask();
@@ -29,6 +44,8 @@ const Home: NextPage = () => {
   const isOnWrongNetwork = useNetworkMismatch();
   const claimNFT = useClaimNFT(nftDrop);
   const [, switchNetwork] = useNetwork();
+  const [popupMessage, setMessage] = useState("");
+  const [popupTitle, setTitle] = useState("");
 
   // The amount the user claims
   const [quantity, setQuantity] = useState(1); // default to 1
@@ -67,6 +84,14 @@ const Home: NextPage = () => {
     return <div className={styles.container}>Loading...</div>;
   }
 
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
   // Function to mint/claim an NFT
   const mint = async () => {
     if (isOnWrongNetwork) {
@@ -79,11 +104,17 @@ const Home: NextPage = () => {
       {
         onSuccess: () => {
           alert(`Successfully minted NFT${quantity > 1 ? "s" : ""}!`);
+          Router.push("/success");
         },
-        onError: (err: any) => {
+        onError: (err: any) => {          
+          if ( err?.message.includes("User denied") ) {            
+            setMessage(err?.message);
+          } else {
+            setMessage("Outro Erro");
+          }
+          openModal();
           console.error(err);
-          alert(err?.message || "Something went wrong");
-        }
+        },
       }
     );
   };
@@ -203,6 +234,15 @@ const Home: NextPage = () => {
           )}
         </div>
       </div>
+      <Modal
+        isOpen={modalIsOpen}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <h2>{popupTitle}</h2>
+        <button onClick={closeModal}>close</button>
+        <div>{popupMessage}</div>
+      </Modal>
     </div>
   );
 };
