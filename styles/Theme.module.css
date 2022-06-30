@@ -109,7 +109,7 @@
   margin: auto;
 }
 
-.mainButton {
+.mainButton, .metamaskbt {
   cursor: pointer;
   display: inline-flex;
   appearance: none;

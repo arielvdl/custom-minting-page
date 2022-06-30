@@ -226,7 +226,7 @@ const Home: NextPage = () => {
           ) : (
             <div className={styles.buttons}>
               <button
-                className={styles.metamaskbt} className={styles.mainButton}
+                className= {styles.metamaskbt}
                 onClick={connectWithMetamask}
               >
                 Connect MetaMask
