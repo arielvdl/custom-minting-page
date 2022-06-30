@@ -214,11 +214,20 @@
   margin-top: 26px;
 }
 
+.detail{
+  font-size: 0.9rem;
+  color: #747474;
+  line-height: 1.3rem;
+  margin-top: 4rem;
+  padding: 0px 30px;
+}
+
 /* On mobile, make the .mintInfoContainer stack vertically */
 @media screen and (max-width: 850px) {
   .mintInfoContainer {
     flex-direction: column;
     padding-bottom: 5%;
+    min-height: 600px;
   }
 
   .infoSide {

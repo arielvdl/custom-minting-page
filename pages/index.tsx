@@ -130,6 +130,7 @@ const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.mintInfoContainer}>
+
         <div className={styles.imageSide}>
           {/* Image Preview of NFTs */}
           <Image
@@ -240,7 +241,13 @@ const Home: NextPage = () => {
             </div>
           )}
         </div>
+
       </div>
+
+      <div>
+       <p className={styles.detail}>For the best experience, use the desktop. This free mint is exclusive to those who subscribed to the list.</p> 
+      </div>
+
       <Modal
         ariaHideApp={false}
         isOpen={modalIsOpen}
