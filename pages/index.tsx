@@ -22,7 +22,7 @@ import styles from "../styles/Theme.module.css";
 
 // Modal.setAppElement('#modal');
 // Put Your NFT Drop Contract address from the dashboard here
-const myNftDropContractAddress = "0x34d5bfd207881787Ae6c55d6fFD4f06FAb90027E";
+const myNftDropContractAddress = "0x04ef60e53f4d6E4A7e3A047D92ad5BE0cB4B2111";
 const customStyles = {
   content: {
     top: "50%",
