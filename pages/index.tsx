@@ -172,7 +172,7 @@ const Home: NextPage = () => {
               </div>
             ) : isNotReady ? (
               <div>
-                <h2>Not ready to be minted yet</h2>
+                <h2>Wait...</h2>
               </div>
             ) : (
               <>
