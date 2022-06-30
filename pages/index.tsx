@@ -264,7 +264,7 @@ const Home: NextPage = () => {
       </div>
 
       <div>
-       <p className={styles.detail}>For the best experience, use the desktop. This free mint is exclusive to those who subscribed to the list.</p> 
+       <p className={styles.detail}>For the most optimal experience, use desktop. This free mint is exclusive to those who joined the Jersey airdrop list.</p> 
       </div>
 
       <Modal
