@@ -82,7 +82,16 @@ const Home: NextPage = () => {
 
   // Loading state while we fetch the metadata
   if (!nftDrop || !contractMetadata) {
-    return <div className={styles.container}>Loading...</div>;
+    return <div className={styles.container}>
+      
+      <img
+            src="/diamante.gif"
+            alt="Rough Diamond Logo"
+            width={100}
+            className={styles.diamante}
+          />
+          
+    </div>;
   }
 
   function openModal() {
@@ -129,7 +138,17 @@ const Home: NextPage = () => {
 
   return (
     <div className={styles.container}>
+
       <div className={styles.mintInfoContainer}>
+
+      <div className={styles.diamanteHeader}>
+          <img
+            src="/diamante.gif"
+            alt="Rough Diamond Logo"
+            width={80}
+            className={styles.diamante}
+          />
+      </div>
 
         <div className={styles.imageSide}>
           {/* Image Preview of NFTs */}

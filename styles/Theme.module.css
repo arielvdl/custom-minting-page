@@ -224,6 +224,18 @@
   padding: 0px 30px;
 }
 
+.diamante{
+}
+
+.diamanteHeader{
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
 /* On mobile, make the .mintInfoContainer stack vertically */
 @media screen and (max-width: 850px) {
   .mintInfoContainer {
@@ -243,4 +255,14 @@
   .metamaskbt{
     display:none;
   }
+
+  .diamanteHeader{
+    position: absolute;
+    top: 5px;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  
 }
