@@ -125,7 +125,7 @@ const Home: NextPage = () => {
             setMessage("Only 1 nft allowed per whitelisted approved wallet.");
           } else {
             setMessage(
-              "Something went wrong, please verify that you are on the access list. Try again."
+              "Please verify that you are on the access list and try again."
             );
             // setMessage(err?.message);
           }
