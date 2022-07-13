@@ -263,8 +263,9 @@ const Home: NextPage = () => {
 
       </div>
 
+
       <div>
-       <p className={styles.detail}>For the most optimal experience, use desktop. This free mint is exclusive to those who joined the Jersey airdrop list.</p> 
+       <p className={styles.detail}>Tokenomics (1000 Jerseys Pass): 50 Diamond Jersey > 50 Rarible Gold > more soon. <br> </br>For the most optimal experience, use desktop. This free mint is exclusive to those who joined the Jersey airdrop list.</p> 
       </div>
 
       <Modal
