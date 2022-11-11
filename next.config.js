@@ -7,7 +7,7 @@ const nextConfig = {
     ];
   },
   images: {
-    domains: ['gateway.ipfscdn.io'],
+    domains: ['ipfs.io'],
   },
 }
 
